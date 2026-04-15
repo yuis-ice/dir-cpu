@@ -1,5 +1,12 @@
 # dir-cpu
 
+[![CI](https://github.com/yuis-ice/dir-cpu/actions/workflows/ci.yml/badge.svg)](https://github.com/yuis-ice/dir-cpu/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-yuis--ice.github.io%2Fdir--cpu-blue)](https://yuis-ice.github.io/dir-cpu/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Go Report](https://goreportcard.com/badge/github.com/yuis-ice/dir-cpu)](https://goreportcard.com/report/github.com/yuis-ice/dir-cpu)
+
+**[Full documentation →](https://yuis-ice.github.io/dir-cpu/)**
+
 A real-time CLI that shows CPU usage aggregated by **filesystem directory** — not by process name or cgroup.
 
 If `/home/user/projects/myapp/server.py` uses 30% CPU, `dir-cpu` shows that cost against every ancestor:

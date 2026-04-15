@@ -11,6 +11,11 @@ AGENTS.md
 agent-references/
 prompt-genesis.txt
 
+# Node / VitePress
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
 # Editor/tooling
 .opencode/
 .ignore
