@@ -1,0 +1,32 @@
+name: Bug Report
+description: Something isn't working right
+labels: ["bug"]
+body:
+  - type: input
+    id: command
+    attributes:
+      label: Command run
+      description: Exact command you executed
+      placeholder: "./dir-cpu -base=cwd -i 1s"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS and Go version
+      placeholder: "Ubuntu 22.04, go version go1.22.0 linux/amd64"
+    validations:
+      required: true

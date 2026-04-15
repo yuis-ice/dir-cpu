@@ -1,0 +1,19 @@
+# Build output
+dir-cpu
+dir-cpu.exe
+
+# Go cache / module cache (local dev overrides)
+.gopath/
+.gocache/
+
+# Project-internal agent files
+AGENTS.md
+agent-references/
+prompt-genesis.txt
+
+# Editor/tooling
+.opencode/
+.ignore
+*.swp
+*.swo
+.DS_Store
