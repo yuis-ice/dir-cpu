@@ -1,4 +1,4 @@
-module dir-cpu
+module github.com/yuis-ice/dir-cpu
 
 go 1.25.3
 

@@ -1,6 +1,7 @@
 # dir-cpu
 
 [![CI](https://github.com/yuis-ice/dir-cpu/actions/workflows/ci.yml/badge.svg)](https://github.com/yuis-ice/dir-cpu/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/yuis-ice/dir-cpu)](https://github.com/yuis-ice/dir-cpu/releases/latest)
 [![Docs](https://img.shields.io/badge/docs-yuis--ice.github.io%2Fdir--cpu-blue)](https://yuis-ice.github.io/dir-cpu/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Go Report](https://goreportcard.com/badge/github.com/yuis-ice/dir-cpu)](https://goreportcard.com/report/github.com/yuis-ice/dir-cpu)
@@ -21,19 +22,33 @@ Works on Linux. Useful for spotting which project directory is burning CPU witho
 
 ## Install
 
-**From source (requires Go 1.21+):**
+**Binary (Linux, no Go required):**
+
+```bash
+# amd64
+curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_linux_amd64.tar.gz \
+  | tar xz && sudo mv dir-cpu /usr/local/bin/
+
+# arm64
+curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_linux_arm64.tar.gz \
+  | tar xz && sudo mv dir-cpu /usr/local/bin/
+```
+
+Or download manually from the [releases page](https://github.com/yuis-ice/dir-cpu/releases/latest).
+
+**go install (requires Go 1.21+):**
+
+```bash
+go install github.com/yuis-ice/dir-cpu@latest
+```
+
+**From source:**
 
 ```bash
 git clone https://github.com/yuis-ice/dir-cpu
 cd dir-cpu
 go build -o dir-cpu .
 sudo mv dir-cpu /usr/local/bin/
-```
-
-**Run without installing:**
-
-```bash
-go run github.com/yuis-ice/dir-cpu@latest
 ```
 
 ## Usage

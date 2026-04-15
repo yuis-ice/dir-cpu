@@ -3,9 +3,43 @@
 ## Requirements
 
 - **Linux** — reads `/proc`, so macOS and Windows are not supported
-- **Go 1.21+** — only needed if building from source
+- **Go 1.21+** — only needed if building from source; not required for binary installs
 
 ## Install
+
+### Binary (recommended, no Go required)
+
+Download a pre-built binary from the [releases page](https://github.com/yuis-ice/dir-cpu/releases/latest):
+
+::: code-group
+
+```bash [amd64]
+curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_linux_amd64.tar.gz \
+  | tar xz && sudo mv dir-cpu /usr/local/bin/
+```
+
+```bash [arm64]
+curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_linux_arm64.tar.gz \
+  | tar xz && sudo mv dir-cpu /usr/local/bin/
+```
+
+```bash [386]
+curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_linux_386.tar.gz \
+  | tar xz && sudo mv dir-cpu /usr/local/bin/
+```
+
+:::
+
+Not sure which to pick? Run `uname -m`:
+- `x86_64` → amd64
+- `aarch64` → arm64
+- `i686` → 386
+
+### go install
+
+```bash
+go install github.com/yuis-ice/dir-cpu@latest
+```
 
 ### From source
 
@@ -14,12 +48,6 @@ git clone https://github.com/yuis-ice/dir-cpu
 cd dir-cpu
 go build -o dir-cpu .
 sudo mv dir-cpu /usr/local/bin/
-```
-
-### Run without installing
-
-```bash
-go run github.com/yuis-ice/dir-cpu@latest
 ```
 
 ### Verify

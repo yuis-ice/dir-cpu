@@ -1,0 +1,68 @@
+version: 2
+
+project_name: dir-cpu
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+      - "386"
+    binary: dir-cpu
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+
+archives:
+  - formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE
+      - CHANGELOG.md
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  use: github
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+      - Merge pull request
+      - Merge branch
+
+release:
+  github:
+    owner: yuis-ice
+    name: dir-cpu
+  name_template: "v{{ .Version }}"
+  header: |
+    ## dir-cpu {{ .Tag }}
+
+    Real-time CPU usage by filesystem directory.
+
+    ### Install
+
+    Download the binary for your architecture below, or:
+
+    ```bash
+    # Linux amd64 (one-liner)
+    curl -sL https://github.com/yuis-ice/dir-cpu/releases/latest/download/dir-cpu_{{ .Version }}_linux_amd64.tar.gz \
+      | tar xz && sudo mv dir-cpu /usr/local/bin/
+    ```
+
+    Full documentation: https://yuis-ice.github.io/dir-cpu/
+  footer: |
+    **Full Changelog**: https://github.com/yuis-ice/dir-cpu/compare/{{ .PreviousTag }}...{{ .Tag }}
